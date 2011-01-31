@@ -1,6 +1,6 @@
 <h1>Create hours</h1>
 
-<%= form_for @hours, :url => { :action => :new } do |h| %>
+<%= form_for (@hours) do |h| %>
   <%= h.label :date %>: &nbsp; <%= h.text_field :date %> <br />
   <%= h.label :location %>: &nbsp; <%= h.text_field :location %> <br />
   <%= h.label :start %>: &nbsp; <%= h.text_field :start %><br />
