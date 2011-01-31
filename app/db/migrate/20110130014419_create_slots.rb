@@ -17,3 +17,4 @@ class CreateSlots < ActiveRecord::Migration
     drop_table :slots
   end
 end
+
