@@ -1,15 +1,15 @@
 class HoursController < ApplicationController
   def show
-    @hours = Hours.find(params[:id])
+    @hour = Hour.find(params[:id])
   end
 
   def new
-    @hours = Hours.new
+    @hour = Hour.new
   end
 
   def create
-    @hours = Hours.new(params[:hours])
-    if @hours.save
+    @hour = Hour.new(params[:hour])
+    if @hour.save
       render 'new'
     else
       render 'new'
