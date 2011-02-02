@@ -1,6 +1,7 @@
 class SlotsController < ApplicationController
   def create
-    @slot = @hours_id.slot.build(params[:slot])
+    @hour = Hour.find(params[:hour_id])
+    @slot = @hour.slots.build(params[:slot])
     if @slot.save
       flash[:success] = "slot created"
     else

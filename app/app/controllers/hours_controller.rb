@@ -5,7 +5,9 @@ class HoursController < ApplicationController
 
   def show
     @hour = Hour.find(params[:id])
+    @slots = @hour.slots
     @slot = Slot.new
+    
   end
 
   def new
