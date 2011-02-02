@@ -1,3 +1,8 @@
 <%= @hour.date %>
 <br />
 <%= @hour.location %>
+
+<p><%= link_to "all hours", hours_path %></p>
+
+<%= render 'shared/slot_form' %>
+

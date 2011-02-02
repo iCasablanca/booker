@@ -1,5 +1,5 @@
-class Slots < ActiveRecord::Base
-  belongs_to :hours
+class Slot < ActiveRecord::Base
+  belongs_to :hour
 
   attr_accessible :email
 end

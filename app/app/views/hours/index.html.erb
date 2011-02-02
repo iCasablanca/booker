@@ -1,0 +1,5 @@
+<%= @hours.each do |h| %>
+  <p><%= link_to h.date, hour_path(h.id) %>, <%= h.start %>, <%= h.location %></p>
+<% end %>
+
+<p><%=link_to "create new hours", new_hour_path %></p>

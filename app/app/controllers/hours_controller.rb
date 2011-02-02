@@ -1,6 +1,11 @@
 class HoursController < ApplicationController
+  def index
+    @hours = Hour.find(:all)
+  end
+
   def show
     @hour = Hour.find(params[:id])
+    @slot = Slot.new
   end
 
   def new
@@ -10,7 +15,7 @@ class HoursController < ApplicationController
   def create
     @hour = Hour.new(params[:hour])
     if @hour.save
-      render 'new'
+      redirect_to hours_path
     else
       render 'new'
     end

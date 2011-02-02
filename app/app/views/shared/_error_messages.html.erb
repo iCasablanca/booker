@@ -1,0 +1,12 @@
+<% if @hour.errors.any? %>
+    <h2><%= pluralize(@hour.errors.count, "error") %> 
+        stopped these hours from being saved:</h2>
+    <p>There were problems with the following fields:</p>
+    <ul>
+    <% @hour.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
