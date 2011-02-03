@@ -21,4 +21,7 @@ class SlotsController < ApplicationController
       redirect_to hour_path(hour)
     end
   end
+
+  def cancel
+  end
 end

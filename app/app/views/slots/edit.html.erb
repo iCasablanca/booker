@@ -1,4 +1,11 @@
-<% form_for @slot do |s| %>
-  <%= s.label :email %> &nbsp; <%= s.text_field :email %> 
-  <%= s.submit "book" %>
+<% if @slot.email.empty? %>
+  <% form_for @slot do |s| %>
+    <%= s.label :email %> &nbsp; <%= s.text_field :email %> 
+    <%= s.submit "book" %>
+  <% end %>
+<% else %>
+  <p>To cancel this slot enter the email you used to book it</p>
+  <% form_for @slot, :url => { :action => "cancel" } do |s| %>
+    <%= s.label :email %> &nbsp; <%= s.text_field :email %>
+  <% end %>
 <% end %>

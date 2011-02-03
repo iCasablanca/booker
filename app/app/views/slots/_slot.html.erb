@@ -1,9 +1,13 @@
 <p>
   <%=slot.start.to_s(:slot) %> &nbsp; 
-  <%= slot.email %> &nbsp;
+  <% if slot.email? %>
+    <b>booked</b> &nbsp; <%= link_to "reschedule", edit_slot_path(slot.id) %>
+  <% else %>
+    <%= link_to "book slot", edit_slot_path(slot.id) %>
+  <% end %>
 
-  <%= link_to "book slot", edit_slot_path(slot.id) %>
-
+  <!-- not displaying email until i've implemented some admin authentication -->
+  <%-# slot.email %>  
 </p>
 
 
