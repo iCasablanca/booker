@@ -2,7 +2,7 @@
   <%= s.label :start %>: &nbsp; <%= s.text_field :start %> <br />
   <%= s.label :end %>: &nbsp; <%= s.text_field :end %> <br />
   <%= s.label :email %>&nbsp; <%= s.text_field :email %> <br />
-  <%= @hour.id %>
+  <%= hidden_field_tag 'hour_id', @hour.id %>
   <%= s.submit "add slot" %>
 <% end %>
 

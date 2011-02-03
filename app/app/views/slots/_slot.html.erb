@@ -1,3 +1,9 @@
-<p><%=slot.start %>, <%=slot.end %>, <%=slot.email %></p>
+<p>
+  <%=slot.start.to_s(:slot) %> &nbsp; 
+  <%= slot.email %> &nbsp;
+
+  <%= link_to "book slot", edit_slot_path(slot.id) %>
+
+</p>
 
 

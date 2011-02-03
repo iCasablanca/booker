@@ -1,16 +1,16 @@
-<%= @hour.date %>
-<br />
-<%= @hour.location %>
+<h1><%= @hour.date.to_s(:pretty) %></h1>
+<h2><%= @hour.location %></h2>
 
-<p><%= link_to "all hours", hours_path %></p>
 
-<h2>slots</h2>
 <% if @hour.slots.empty? %>
   <p>no slots created yet</p>
 <% else %>
   <%= render @slots %>
 <% end %>
 
+<p><%= link_to "all hours", hours_path %></p>
 
-<%= render 'shared/slot_form' %>
+
+<!-- don't need add slot form now, maybe let admin see it later -->
+<%-# render 'shared/slot_form' %>
 
