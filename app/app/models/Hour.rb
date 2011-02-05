@@ -15,6 +15,10 @@ class Hour < ActiveRecord::Base
     end
   end
 
+  def endhours
+    self.start + (self.number_slots).hour
+  end
+
 
 
 end

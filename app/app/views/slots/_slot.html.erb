@@ -1,5 +1,5 @@
 <p>
-  <%=slot.start.to_s(:slot) %> &nbsp; 
+<%=slot.start.to_s(:slot) %> &nbsp; <%= slot.email %> 
   <% if slot.email? %>
     <b>booked</b> &nbsp; <%= link_to "reschedule", edit_slot_path(slot.id) %>
   <% else %>

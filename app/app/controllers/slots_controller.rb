@@ -15,13 +15,22 @@ class SlotsController < ApplicationController
   end
 
   def update
+    @email = params[:slot][:email]
     @slot = Slot.find(params[:id])
-    if @slot.update_attributes(params[:slot])
-      hour = @slot.hour_id
+    hour = @slot.hour_id
+
+    if @slot.email? && @email == @slot.email
+      @slot.update_attributes(:email => "")
+      redirect_to hour_path(hour)
+    elsif @slot.email?
+      redirect_to edit_slot_path(@slot.id)
+    else
+      @slot.update_attributes(:email => @email) #doesn't catch errors and don't like idea of nested if
       redirect_to hour_path(hour)
     end
   end
-
-  def cancel
-  end
 end
+
+
+
+
