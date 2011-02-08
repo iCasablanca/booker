@@ -1,8 +1,11 @@
 App::Application.routes.draw do
   resources :hours
   resources :slots
+  resources :user_sessions
 
   match 'slots/reschedule' => 'slots#reschedule'
+  match 'login' => 'user_sessions#new'
+  match 'logout' => 'user_sessions#destroy'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

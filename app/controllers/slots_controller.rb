@@ -23,6 +23,7 @@ class SlotsController < ApplicationController
       @slot.update_attributes(:email => "")
       redirect_to hour_path(hour)
     elsif @slot.email?
+      flash[:notice] = "A different email address was used to book this slot"
       redirect_to edit_slot_path(@slot.id)
     else
       @slot.update_attributes(:email => @email) #doesn't catch errors and don't like idea of nested if
