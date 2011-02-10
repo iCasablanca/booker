@@ -11,6 +11,7 @@ class HoursController < ApplicationController
   end
 
   def new
+
     @hour = Hour.new
   end
 
