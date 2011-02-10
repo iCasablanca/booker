@@ -2,6 +2,9 @@
 <%=slot.start.to_s(:slot) %> &nbsp;
   <% if slot.email? %>
     <b>booked</b> &nbsp; <%= link_to "reschedule", edit_slot_path(slot.id) %>
+    <% if current_user %>
+      &nbsp;<%= slot.email %>
+    <% end %>
   <% else %>
     <%= link_to "book slot", edit_slot_path(slot.id) %>
   <% end %>
