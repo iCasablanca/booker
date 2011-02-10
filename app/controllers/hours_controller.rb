@@ -10,8 +10,7 @@ class HoursController < ApplicationController
     
   end
 
-  def new
-
+  def new    
     @hour = Hour.new
   end
 
