@@ -21,12 +21,14 @@ class SlotsController < ApplicationController
 
     if @slot.email? && @email == @slot.email
       @slot.update_attributes(:email => "")
+      flash[:notice] = "The meeting is cancelled. Please pick another time that works."
       redirect_to hour_path(hour)
     elsif @slot.email?
-      flash[:notice] = "A different email address was used to book this slot"
+      flash[:notice] = "This wasn't the email used to book this meeting. Enter that to cancel meeting"
       redirect_to edit_slot_path(@slot.id)
     else
       @slot.update_attributes(:email => @email) #doesn't catch errors and don't like idea of nested if
+      flash[:notice] = "Cool the meeting is booked for #{@slot.start.to_s(:slot)}. See you there, thanks."
       redirect_to hour_path(hour)
     end
   end

@@ -6,7 +6,7 @@
       &nbsp;<%= slot.email %>
     <% end %>
   <% else %>
-    <%= link_to "book slot", edit_slot_path(slot.id) %>
+    <%= link_to "book meeting", edit_slot_path(slot.id) %>
   <% end %>
 
   <!-- not displaying email until i've implemented some admin authentication -->
