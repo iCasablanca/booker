@@ -3,7 +3,9 @@ App::Application.routes.draw do
   resources :slots
   resources :users
   resources :user_sessions
+  resources :calendar
 
+  match 'calendar/login' => 'calendar#new'
   match 'slots/reschedule' => 'slots#reschedule'
   match 'login' => 'user_sessions#new'
   match 'logout' => 'user_sessions#destroy'

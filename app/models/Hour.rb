@@ -6,8 +6,7 @@ class Hour < ActiveRecord::Base
 
   def fill_in_slots
     start = self.date
-    numbslots = self.number_slots
-    endtime = self.date + numbslots.hour
+    endtime = self.date + (self.number_slots).hour
 
     while start < endtime
       Slot.create(:start => start, :end => start + 1.hour, :hour_id => self.id)
