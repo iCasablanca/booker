@@ -23,4 +23,5 @@ class HoursController < ApplicationController
     end
   end
 
+
 end
