@@ -4,7 +4,7 @@ desc "This task is called by the Heroku cron add-on"
 task :cron => :environment do
     include GCal4Ruby
     service = Service.new
-    service.authenticate("harjeet.taggar@gmail.com", "")
+    service.authenticate("harjeet.taggar@gmail.com", "irnsofray21")
     calendar = Calendar.find(service, "Work")[0]
     
     Hour.find(:all).each do |hour|
