@@ -6,7 +6,6 @@ task :cron => :environment do
     service = Service.new
     service.authenticate("harjeet.taggar@gmail.com", "irnsofray21")
     calendar = Calendar.find(service, "Work")[0]
-    
     Hour.find(:all).each do |hour|
       event = Event.new(service, { :calendar => calendar })
       event.title = "Meeting Hours"
