@@ -1,8 +1,14 @@
-<% @hours.each do |h| %>
-  <%# if h.date >= Time.now %>
-    <p><%= link_to h.date.to_s(:pretty) + " to " + h.endhours.to_s(:slot) , hour_path(h.id) %> - <%= h.location %></p>
-  <%# end %>
-<% end %>
+<table cellpadding ="7" >
+  <% @hours.each do |h| %>
+    <%# if h.date >= Time.now %>
+      <tr>
+        <td><%= link_to h.date.to_s(:pretty) + " to " + h.endhours.to_s(:slot) , hour_path(h.id) %></td>
+        <td>&nbsp;</td>
+        <td><%= h.location %></td>
+      </tr>
+    <%# end %>
+  <% end %>
+</table>
 
 <% if current_user %>
   <p><%=link_to "create new hours", new_hour_path %></p>
