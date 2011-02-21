@@ -16,7 +16,7 @@ task :cron => :environment do
         event.end_time = hour.endhours + 9.hour #additional hour to include end of last meeting
         event.where = hour.location
         event.save
-        hour.update_attributes(:synced => true)
+        hour.toggle(:synced).save
       end
     end
     
@@ -27,7 +27,7 @@ task :cron => :environment do
         event.start_time = slot.start + 8.hour
         event.end_time = slot.end + 8.hour
         event.save
-        slot.update_attributes(:synced => true) 
+        slot.toggle(:synced).save
       end
     end
 end
