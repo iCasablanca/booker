@@ -10,15 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110210075419) do
-
-  create_table "authorizations", :force => true do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20110221013720) do
 
   create_table "hours", :force => true do |t|
     t.datetime "date"
@@ -27,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20110210075419) do
     t.integer  "number_slots"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "synced",       :default => false
   end
 
   create_table "slots", :force => true do |t|
@@ -37,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20110210075419) do
     t.integer  "hour_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "synced",     :default => false
   end
 
   add_index "slots", ["hour_id"], :name => "index_slots_on_hour_id"
