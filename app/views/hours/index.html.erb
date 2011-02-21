@@ -1,5 +1,7 @@
 <% @hours.each do |h| %>
-  <p><%= link_to h.date.to_s(:pretty) + " to " + h.endhours.to_s(:slot) , hour_path(h.id) %> - <%= h.location %></p>
+  <%# if h.date >= Time.now %>
+    <p><%= link_to h.date.to_s(:pretty) + " to " + h.endhours.to_s(:slot) , hour_path(h.id) %> - <%= h.location %></p>
+  <%# end %>
 <% end %>
 
 <% if current_user %>
