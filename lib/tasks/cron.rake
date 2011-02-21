@@ -28,6 +28,7 @@ task :cron => :environment do
         event.end_time = slot.end + 8.hour
         event.save
         slot.update_attributes(:synced => true) 
+      end
     end
 end
 
