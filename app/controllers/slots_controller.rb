@@ -28,7 +28,7 @@ class SlotsController < ApplicationController
       redirect_to edit_slot_path(@slot.id)
     else
       @slot.update_attributes(:email => @email) #doesn't catch errors and don't like idea of nested if
-      flash[:notice] = "Cool the meeting is booked for #{@slot.start.to_s(:slot)}. See you there, thanks."
+      flash[:notice] = "The meeting is booked for #{@slot.start.to_s(:slot)}. See you there, thanks."
       redirect_to hour_path(hour)
     end
   end
