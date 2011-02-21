@@ -1,6 +1,6 @@
 class AddSyncedToHours < ActiveRecord::Migration
   def self.up
-    add_column :hours, :synced, :boolean, :default => 'false'
+    add_column :hours, :synced, :boolean, :default => false
   end
 
   def self.down
