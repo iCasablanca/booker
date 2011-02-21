@@ -1,6 +1,6 @@
 class AddSyncedToSlots < ActiveRecord::Migration
   def self.up
-    add_column :slots, :synced, :boolean, :default => 'false'
+    add_column :slots, :synced, :boolean, :default => false
   end
 
   def self.down
