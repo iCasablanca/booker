@@ -9,6 +9,9 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'authlogic'
 gem 'rails3-generators'
 gem 'gcal4ruby'
+gem 'gdata'
+gem 'oauth'
+gem 'oauth-plugin'
 
 # Use unicorn as the web server
 # gem 'unicorn'
