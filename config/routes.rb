@@ -1,16 +1,21 @@
 App::Application.routes.draw do
+  resources :oauth_consumers do
+    get :callback, :on => :member
+  end
+
   resources :hours
   resources :slots
   resources :users
   resources :user_sessions
   resources :calendar
+  resources :oauth_consumers
 
   match 'calendar/login' => 'calendar#new'
   match 'slots/reschedule' => 'slots#reschedule'
   match 'login' => 'user_sessions#new'
   match 'logout' => 'user_sessions#destroy'
 
-  match '/auth/:provider/callback', :to => 'sessions#create'
+  match '/auth/:provider/callback', :to => 'hours#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

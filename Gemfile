@@ -11,7 +11,15 @@ gem 'rails3-generators'
 gem 'gcal4ruby'
 gem 'gdata'
 gem 'oauth'
-gem 'oauth-plugin'
+#, :git => "http://github.com/pelle/oauth.git" 
+gem "oauth-plugin", ">=0.4.0.pre1"
+# gem 'oauth-plugin', :git => "http://github.com/pelle/oauth-plugin.git", :branch => "rails3" 
+gem "portablecontacts", :git => "git://github.com/abhishiv/portablecontacts.git" 
+gem 'omniauth', :git => "https://github.com/intridea/omniauth.git"
+gem 'oa-openid', :git => "https://github.com/intridea/omniauth.git"
+gem 'mongrel', '1.2.0.pre2'
+
+
 
 # Use unicorn as the web server
 # gem 'unicorn'
