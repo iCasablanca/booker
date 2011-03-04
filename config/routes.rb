@@ -15,7 +15,7 @@ App::Application.routes.draw do
   match 'login' => 'user_sessions#new'
   match 'logout' => 'user_sessions#destroy'
 
-  match '/auth/:provider/callback', :to => 'hours#index'
+  match '/auth/:provider/callback', :to => 'hours#callback'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

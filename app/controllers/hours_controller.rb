@@ -24,5 +24,14 @@ class HoursController < ApplicationController
     end
   end
 
+  def callback
+    if current_user
+      current_user.oauth_token = request.env['omniauth.auth']['credentials']['token']
+      current_user.oauth_secret = request.env['omniauth.auth']['credentials']['secret']
+      current_user.save!
+    end
+    
+    redirect_to :action => 'index'
+  end
 
 end
