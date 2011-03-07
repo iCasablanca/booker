@@ -1,4 +1,5 @@
 require 'google_util'
+require 'rest_client'
 
 class CalendarsController < ApplicationController
   def index
@@ -42,7 +43,8 @@ class CalendarsController < ApplicationController
     </entry>
 EOF
 
-post = client.post('https://www.google.com/calendar/feeds/default/private/full', entry)
+  RestClient.post "https://www.google.com/calendar/feeds/default/private/full", entry, :content_type => 'application/atom+xml'
+
   end
 
 end
