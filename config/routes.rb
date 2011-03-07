@@ -7,13 +7,14 @@ App::Application.routes.draw do
   resources :slots
   resources :users
   resources :user_sessions
-  resources :calendar
+  resources :calendars
   resources :oauth_consumers
 
-  match 'calendar/login' => 'calendar#new'
   match 'slots/reschedule' => 'slots#reschedule'
   match 'login' => 'user_sessions#new'
   match 'logout' => 'user_sessions#destroy'
+  match 'example_request' => 'hours#example_request'
+  match 'newevent' => 'calendars#newevent'
 
   match '/auth/:provider/callback', :to => 'hours#callback'
 

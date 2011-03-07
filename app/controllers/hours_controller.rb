@@ -1,3 +1,5 @@
+require 'google_util'
+
 class HoursController < ApplicationController
   def index
     puts request.env['omniauth.auth'].inspect
@@ -33,22 +35,4 @@ class HoursController < ApplicationController
     
     redirect_to :action => 'index'
   end
-
-   def example_request
-    oauth_consumer = OAuth::Consumer.new("crontab.org", "oGiQSnxe/Ryq22jGwBxZrLP0")
-    access_token = OAuth::AccessToken.new(oauth_consumer, current_user.oauth_token, current_user.oauth_secret)
-    client = Google::Client.new(access_token, '2.0');
-
-    # Here is where you specify the get. You can pass parameters into the hash. See the gdata spec.
-    feed = client.get('https://www.google.com/calendar/feeds/default/allcalendars/full', {})
-
-    output = ""
-    feed.elements.each('//entry') do |entry|
-      output += entry.elements["title"].text + "<br>"
-    end
-
-    render :text => output
-  end
-
-
 end
