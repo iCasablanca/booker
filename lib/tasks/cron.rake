@@ -2,14 +2,15 @@ require 'google_util'
 
 desc "This task is called by the Heroku cron add-on"
 task :cron => :environment do
-    oauth_consumer = OAuth::Consumer.new("high-stream-410.heroku.com", "mhBqC4iClJ78ebc3UOH+9GTM")
-    access_token = OAuth::AccessToken.new(oauth_consumer, User.find(1).oauth_token, User.find(1).oauth_secret)
-
-    uri = URI.parse("https://www.google.com/calendar/feeds/default/private/full")
-    client = Google::Client.new(access_token, '2.0');
-
+    
     Hour.find(:all).each do |hour|
       if hour.synced == false
+        oauth_consumer = OAuth::Consumer.new("high-stream-410.heroku.com", "mhBqC4iClJ78ebc3UOH+9GTM")
+        access_token = OAuth::AccessToken.new(oauth_consumer, User.find(1).oauth_token, User.find(1).oauth_secret)
+
+        uri = URI.parse("https://www.google.com/calendar/feeds/default/private/full")
+        client = Google::Client.new(access_token, '2.0');
+
 
         entry = <<EOF
        <entry xmlns='http://www.w3.org/2005/Atom'
