@@ -42,7 +42,7 @@ EOF
               xmlns:gd='http://schemas.google.com/g/2005'>
             <category scheme='http://schemas.google.com/g/2005#kind'
               term='http://schemas.google.com/g/2005#event'></category>
-            <title type='text'>#{slot.email}</title>
+            <title type='text'>'This is meeting'</title>
             <content type='text'></content>
             <gd:transparency
               value='http://schemas.google.com/g/2005#event.opaque'>
@@ -51,8 +51,8 @@ EOF
               value='http://schemas.google.com/g/2005#event.confirmed'>
             </gd:eventStatus>
             <gd:where valueString=""></gd:where>
-            <gd:when startTime=#{slot.start + 8.hour}
-              endTime=#{slot.end + 8.hour}></gd:when>
+            <gd:when startTime=2011-03-10T15:00:00.000Z'
+              endTime='2011-03-10T17:00:00.000Z'></gd:when>
           </entry>
 EOF
         post_headers = { "Content-Type" => "application/atom+xml" }
