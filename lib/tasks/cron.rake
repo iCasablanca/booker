@@ -32,6 +32,7 @@ task :cron => :environment do
 EOF
         post_headers = { "Content-Type" => "application/atom+xml" }
         client.post(uri.to_s, entry, post_headers)
+        puts response.body
         hour.toggle(:synced).save
       end
     end
