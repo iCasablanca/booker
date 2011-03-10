@@ -29,7 +29,7 @@ class CalendarsController < ApplicationController
         xmlns:gd='http://schemas.google.com/g/2005'>
       <category scheme='http://schemas.google.com/g/2005#kind'
         term='http://schemas.google.com/g/2005#event'></category>
-      <title type='text'>Testing out Calendar API</title>
+      <title type='text'>Testing #{1+2} out Calendar API</title>
         <content type='text'>Trying to be a hacker.</content>
       <gd:transparency
         value='http://schemas.google.com/g/2005#event.opaque'>
@@ -43,7 +43,11 @@ class CalendarsController < ApplicationController
     </entry>
 EOF
 
-  RestClient.post "https://www.google.com/calendar/feeds/default/private/full", entry, :content_type => 'application/atom+xml'
+    uri = URI.parse("https://www.google.com/calendar/feeds/default/private/full")
+    client = Google::Client.new(access_token, '2.0');
+    
+    post_headers = { "Content-Type" => "application/atom+xml" }
+    client.post(uri.to_s, entry, post_headers)
 
   end
 

@@ -15,12 +15,23 @@ module Google
     def get(base, query_parameters)
       make_request(:get, url(base, query_parameters))
     end
+
+    def post(url, body, headers)
+      make_request(:post, url, body, headers)
+    end
     
-    def make_request(method, url)
-      response = @token.request(method, url, { 'GData-Version' => version })
+    def make_request(method, url, body = nil, headers = {})
+      merged_headers = { 'GData-Version' => version }.merge(headers)
+
+      if method == :get
+        response = @token.request(method, url, merged_headers)
+      elsif method == :post
+        response = @token.request(method, url, body, merged_headers)
+      end
+
       if response.is_a?(Net::HTTPFound)
         url = response['Location']
-        return make_request(method, response['Location'])
+        return make_request(method, response['Location'], body, merged_headers)
       end
       puts response.body
       return unless response.is_a?(Net::HTTPSuccess)
