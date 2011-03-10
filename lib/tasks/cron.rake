@@ -3,7 +3,7 @@ require 'google_util'
 desc "This task is called by the Heroku cron add-on"
 task :cron => :environment do
     oauth_consumer = OAuth::Consumer.new("high-stream-410.heroku.com", "mhBqC4iClJ78ebc3UOH+9GTM")
-    access_token = OAuth::AccessToken.new(oauth_consumer, current_user.oauth_token, current_user.oauth_secret)
+    access_token = OAuth::AccessToken.new(oauth_consumer, User.first.oauth_token, User.first.oauth_secret)
 
     uri = URI.parse("https://www.google.com/calendar/feeds/default/private/full")
     client = Google::Client.new(access_token, '2.0');
