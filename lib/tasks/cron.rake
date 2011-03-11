@@ -41,7 +41,7 @@ EOF
         access_token = OAuth::AccessToken.new(oauth_consumer, User.find(1).oauth_token, User.find(1).oauth_secret)
         client = Google::Client.new(access_token, '2.0');
         hour = slot.hour_id
-        slot.location = Hour.find(hour).location
+        location = Hour.find(hour).location
 
         entry = <<EOF
         <entry xmlns='http://www.w3.org/2005/Atom'
@@ -56,7 +56,7 @@ EOF
           <gd:eventStatus
             value='http://schemas.google.com/g/2005#event.confirmed'>
           </gd:eventStatus>
-          <gd:where valueString="#{slot.location}"></gd:where>
+          <gd:where valueString="#{location}"></gd:where>
           <gd:when startTime="#{slot.start.strftime('%Y-%m-%dT%H:%M:%S.000-08:00')}"
             endTime="#{slot.end.strftime('%Y-%m-%dT%H:%M:%S.000-08:00')}"></gd:when>
         </entry>
