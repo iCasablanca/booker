@@ -48,8 +48,8 @@ EOF
             xmlns:gd='http://schemas.google.com/g/2005'>
           <category scheme='http://schemas.google.com/g/2005#kind'
             term='http://schemas.google.com/g/2005#event'></category>
-          <title type='text'>"#{slot.email}"</title>
-          <content type='text'>Trying to be a hacker.</content>
+          <title type='text'>#{slot.email}</title>
+          <content type='text'></content>
           <gd:transparency
             value='http://schemas.google.com/g/2005#event.opaque'>
           </gd:transparency>
