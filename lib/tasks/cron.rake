@@ -56,7 +56,7 @@ EOF
           <gd:eventStatus
             value='http://schemas.google.com/g/2005#event.confirmed'>
           </gd:eventStatus>
-          <gd:where valueString="#{location}"></gd:where>
+          <gd:where valueString="#{puts location}"></gd:where>
           <gd:when startTime="#{slot.start.strftime('%Y-%m-%dT%H:%M:%S.000-08:00')}"
             endTime="#{slot.end.strftime('%Y-%m-%dT%H:%M:%S.000-08:00')}"></gd:when>
         </entry>
