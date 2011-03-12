@@ -22,8 +22,8 @@ task :cron => :environment do
             value='http://schemas.google.com/g/2005#event.confirmed'>
           </gd:eventStatus>
           <gd:where valueString="#{hour.location}"></gd:where>
-          <gd:when startTime="#{hour.date.strftime('%Y-%m-%dT%H:%M:%S.000-08:00')}"
-            endTime="#{hour.endingtime.strftime('%Y-%m-%dT%H:%M:%S.000-08:00')}"></gd:when>
+          <gd:when startTime="#{hour.date.strftime('%Y-%m-%dT%H:%M:%S.000-07:00')}"
+            endTime="#{hour.endingtime.strftime('%Y-%m-%dT%H:%M:%S.000-07:00')}"></gd:when>
         </entry>
 EOF
 
@@ -57,8 +57,8 @@ EOF
             value='http://schemas.google.com/g/2005#event.confirmed'>
           </gd:eventStatus>
           <gd:where valueString="#{location}"></gd:where>
-          <gd:when startTime="#{slot.start.strftime('%Y-%m-%dT%H:%M:%S.000-08:00')}"
-            endTime="#{slot.end.strftime('%Y-%m-%dT%H:%M:%S.000-08:00')}"></gd:when>
+          <gd:when startTime="#{slot.start.strftime('%Y-%m-%dT%H:%M:%S.000-07:00')}"
+            endTime="#{slot.end.strftime('%Y-%m-%dT%H:%M:%S.000-07:00')}"></gd:when>
         </entry>
 EOF
 
