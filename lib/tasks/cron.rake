@@ -23,7 +23,7 @@ task :cron => :environment do
           </gd:eventStatus>
           <gd:where valueString="#{hour.location}"></gd:where>
           <gd:when startTime="#{hour.date.strftime('%Y-%m-%dT%H:%M:%S.000-08:00')}"
-            endTime="#{hour.endhours.strftime('%Y-%m-%dT%H:%M:%S.000-08:00')}"></gd:when>
+            endTime="#{hour.endingtime.strftime('%Y-%m-%dT%H:%M:%S.000-08:00')}"></gd:when>
         </entry>
 EOF
 
