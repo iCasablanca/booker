@@ -93,6 +93,9 @@ GEM
     gdata4ruby (0.1.5)
     gem_plugin (0.2.3)
     i18n (0.4.2)
+    jquery-rails (0.2.7)
+      rails (~> 3.0)
+      thor (~> 0.14.4)
     json (1.5.1)
     mail (2.2.10)
       activesupport (>= 2.3.6)
@@ -158,6 +161,7 @@ DEPENDENCIES
   authlogic
   gcal4ruby
   gdata
+  jquery-rails (>= 0.2.6)
   mongrel (= 1.2.0.pre2)
   oa-openid!
   oauth

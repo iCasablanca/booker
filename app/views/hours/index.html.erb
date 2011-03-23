@@ -13,3 +13,14 @@
 <% if current_user %>
   <p><%=link_to "create new hours", new_hour_path %></p>
 <% end %>
+
+<p>---</p>
+<!-- Make this a hidden div displays on click -->
+<%=# form_for(@hour, :url => {:action => 'create'}) do |h| %>
+    <%=# render 'shared/error_messages' %>
+    <%=# h.label :date %>: &nbsp; <%= h.text_field :date %> <br />
+    <%=# h.label :location %>: &nbsp; <%= h.text_field :location %> <br />
+    <%=# h.label :slots %>: &nbsp; <%= h.text_field :number_slots %> <br /> 
+    <%=# h.submit "create" %>
+<%# end %>
+

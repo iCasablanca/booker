@@ -4,6 +4,7 @@ class HoursController < ApplicationController
   def index
     puts request.env['omniauth.auth'].inspect
     @hours = Hour.find(:all)
+    @hour = Hour.new
   end
 
   def show
