@@ -1,0 +1,16 @@
+<table cellpadding ="7" >
+  <% @hours.each do |h| %>
+    <% if h.date + 8.hour >= Time.now %>
+      <tr>
+        <td><%= link_to h.date.to_s(:pretty) + " to " + h.endhours.to_s(:slot) , hour_path(h.id) %></td>
+        <td>&nbsp;</td>
+        <td><%= h.location %></td>
+        <td><% if current_user %>
+            <%= link_to "delete", hour_path(h.id), :method => :delete, :remote => true, :class => "delete_hour" %>
+            <% end %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
+

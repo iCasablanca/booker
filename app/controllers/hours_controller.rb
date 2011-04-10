@@ -1,29 +1,43 @@
 require 'google_util'
 
 class HoursController < ApplicationController
-  def index
-    puts request.env['omniauth.auth'].inspect
-    @hours = Hour.find(:all)
+  before_filter :load
+
+  def load
+    @hours = Hour.all
     @hour = Hour.new
+  end
+  
+  def index
+  end
+
+  def create
+    @hour = Hour.new(params[:hour])
+    respond_to do |format|
+      if @hour.save
+        format.html {redirect_to(hours_path, :notice => "Hours created")}
+        format.js
+        @hours = Hour.all
+      else
+        format.html {render :action => "index"}
+        format.js
+      end
+    end
   end
 
   def show
     @hour = Hour.find(params[:id])
     @slots = @hour.slots.sort_by(&:start)
     @slot = Slot.new
-    
   end
+  
+  def destroy
+    @hour = Hour.find(params[:id])
+    @hour.destroy
 
-  def new    
-    @hour = Hour.new
-  end
-
-  def create
-    @hour = Hour.new(params[:hour])
-    if @hour.save
-      redirect_to hours_path
-    else
-      render 'new'
+    respond_to do |format|
+      format.html { redirect_to(hours_path) }
+      format.js { render :nothing => true }
     end
   end
 
@@ -33,8 +47,6 @@ class HoursController < ApplicationController
       current_user.oauth_secret = request.env['omniauth.auth']['credentials']['secret']
       current_user.save!
     end
-    
-    redirect_to :action => 'index'
   end
 end
 
