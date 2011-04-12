@@ -1,10 +1,24 @@
-<h2>Create hours</h2>
-
-<%= form_for(@hour, :remote => true) do |h| %>
+<p><%= form_for(@hour, :remote => true) do |h| %>
   <%= render 'shared/error_messages' %>
-  <%= h.label :date %>: &nbsp; <%= h.text_field :date %> <br />
-  <%= h.label :location %>: &nbsp; <%= h.text_field :location %> <br />
-  <%= h.label :slots %>: &nbsp; <%= h.text_field :number_slots %> <br /> 
-  <%= h.submit "create" %>
-<% end %>
+  <table>
+    <tr>
+      <td><%= h.label :date %></td>
+      <td><%= h.text_field :date %></td>
+    </tr>
+    <tr>
+      <td><%= h.label :location %></td>
+      <td><%= h.text_field :location %></td>
+    </tr>
+    <tr>
+      <td><%= h.label :slots %></td>
+      <td><%= h.text_field :number_slots %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td align=right><%= h.submit "create" %></td>
+    </tr>
+  </table>
 
+
+<% end %>
+</p>

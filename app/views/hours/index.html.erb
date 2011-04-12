@@ -2,6 +2,11 @@
   <%= render :partial => "hours" %>
 </div>
 
+<br />
+
 <% if current_user %>
-  <%= render :partial => 'form' %>
+  <%= link_to "create new hours", { :action => "index" }, :class => "createhours" %>
+  <div id="new_hours" />
+    <%= render :partial => 'form' %>
+  </div>
 <% end %>
