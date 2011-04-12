@@ -37,7 +37,7 @@ class HoursController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(hours_path) }
-      format.js { render :nothing => true }
+      format.js 
     end
   end
 
