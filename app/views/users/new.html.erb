@@ -1,6 +1,20 @@
+<h2>Sign up for an account</h2>
 <% form_for @user do |f| %>
-  <%= f.error_messages %>
-  <%= f.label :login %> <%= f.text_field :login %><br />
-  <%= f.label :password %> <%= f.password_field :password %>
-  <%= f.submit "go" %>
+  <table>
+    <tr>
+      <td><%= f.error_messages %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :login %></td> 
+      <td><%= f.text_field :login %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :password %></td> 
+      <td><%= f.password_field :password %></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td align="right"><%= f.submit "done" %></td>
+    </tr>
+  </table>
 <% end %>

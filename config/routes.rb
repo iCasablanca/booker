@@ -1,4 +1,8 @@
 App::Application.routes.draw do
+  get "pages/home"
+
+  match '/oauth_consumers/:provider/callback' => 'hours#index'
+
   resources :oauth_consumers do
     get :callback, :on => :member
   end
@@ -16,7 +20,7 @@ App::Application.routes.draw do
   match 'example_request' => 'hours#example_request'
   match 'newevent' => 'calendars#newevent'
 
-  match '/auth/:provider/callback', :to => 'hours#callback'
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -67,7 +71,7 @@ App::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "hours#index"
+  root :to => "pages#home"
 
   # See how all your routes lay out with "rake routes"
 

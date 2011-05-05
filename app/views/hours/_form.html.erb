@@ -2,16 +2,16 @@
   <%= render 'shared/error_messages' %>
   <table>
     <tr>
-      <td><%= h.label :date %></td>
+      <td><%= h.label :First_Meeting %> <em>e.g. 5 May 3pm</em></td>
       <td><%= h.text_field :date %></td>
+    </tr>
+    <tr>
+      <td><%= h.label :Number_of_meetings %></td>
+      <td><%= h.text_field :number_slots %></td>
     </tr>
     <tr>
       <td><%= h.label :location %></td>
       <td><%= h.text_field :location %></td>
-    </tr>
-    <tr>
-      <td><%= h.label :slots %></td>
-      <td><%= h.text_field :number_slots %></td>
     </tr>
     <tr>
       <td></td>

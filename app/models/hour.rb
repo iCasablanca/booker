@@ -1,6 +1,7 @@
 class Hour < ActiveRecord::Base
-  attr_accessible :date, :start, :location, :number_slots
+  attr_accessible :date, :start, :location, :number_slots, :user_id
   has_many :slots
+  belongs_to :user
   
   after_create :fill_in_slots
 
@@ -21,7 +22,5 @@ class Hour < ActiveRecord::Base
   def endingtime
     self.date + (self.number_slots).hour
   end
-
-
 
 end

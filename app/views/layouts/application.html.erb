@@ -27,5 +27,10 @@
 
   <%= yield %>
 
+  <% if current_user %>
+  ---
+    <p><%= link_to "logout", { :controller => "user_sessions", :action => "destroy" } %></p>
+  <% end %>
+
 </body>
 </html>

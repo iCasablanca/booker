@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110304080727) do
+ActiveRecord::Schema.define(:version => 20110422065549) do
 
   create_table "consumer_tokens", :force => true do |t|
     t.integer  "user_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20110304080727) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "synced",       :default => false
+    t.integer  "user_id"
   end
 
   create_table "slots", :force => true do |t|

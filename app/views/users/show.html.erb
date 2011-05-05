@@ -1,0 +1,18 @@
+<h1><%= @user.login %> Meeting Times</h1>
+
+<% if @hours.any? %>
+  <table cellpadding ="7" >
+    <% @hours.each do |h| %>
+      <% if h.date + 8.hour >= Time.now %>
+        <tr>
+          <td><%= link_to h.date.to_s(:pretty) + " to " + h.endhours.to_s(:slot) , hour_path(h.id) %></td>
+          <td>&nbsp;</td>
+          <td><%= h.location %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+<% else %>
+  <p><%= @user.login %> currently has no time to meet you :(</p>
+<% end %>
+

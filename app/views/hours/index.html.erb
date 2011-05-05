@@ -1,12 +1,26 @@
+<h3>Your meeting blocks</h3>
 <div id="hours_list">
-  <%= render :partial => "hours" %>
-</div>
+    <% if @hours.empty? %>
+      <p>You haven't created any meeting times yet.</p>
+    <% else %>
+      <%= render :partial => "hours" %>
+    <% end %>
+  </div>
+  <br />
 
-<br />
 
 <% if current_user %>
-  <%= link_to "create new hours", { :action => "index" }, :class => "createhours" %>
+  <%= link_to "create new meeting blocks", { :action => "index" }, :class => "createhours" %>
   <div id="new_hours" />
     <%= render :partial => 'form' %>
   </div>
+<% end %>
+
+<br /><br />
+<h3>Your bookerbus URL: http://bookerbus.com/users/<%=current_user.id%> &nbsp;<em>(send this to people who want to meet with you)</em></h3>
+<br />
+
+<% if !current_user.oauth_token? %>
+  <h3>Google Calendar</h3>
+  <p><a href="http://localhost:3000/oauth_consumers/google">Add your Google Calendar account</a>&nbsp; <em>(meetings will be auto added to your calendar)</em></p>
 <% end %>

@@ -4,20 +4,17 @@ class HoursController < ApplicationController
   before_filter :load
 
   def load
-    @hours = Hour.all
+    @hours = current_user.hours
     @hour = Hour.new
   end
   
-  def index
-  end
-
   def create
-    @hour = Hour.new(params[:hour])
+    @hour = current_user.hours.build(params[:hour])
     respond_to do |format|
       if @hour.save
         format.html {redirect_to(hours_path, :notice => "Hours created")}
         format.js
-        @hours = Hour.all
+        @hours = current_user.hours
       else
         format.html {render :action => "index"}
         format.js

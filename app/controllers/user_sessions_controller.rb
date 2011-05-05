@@ -16,7 +16,7 @@ class UserSessionsController < ApplicationController
   def destroy
     current_user_session.destroy
     flash[:notice] = "Logged out"
-    redirect_to hours_path
+    redirect_to(:controller => "pages", :action => "home")
   end
 
 end
