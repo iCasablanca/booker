@@ -8,7 +8,8 @@ OAUTH_CREDENTIALS={
 #     :key=>"",
 #     :secret=>""
 #   },
-   :google=>{
+
+  :google=>{
      :key=>"high-stream-410.heroku.com",
      :secret=>"mhBqC4iClJ78ebc3UOH+9GTM",
      :scope=>"https://www.google.com/calendar/feeds/", 

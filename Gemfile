@@ -12,11 +12,16 @@ gem 'gcal4ruby'
 gem 'gdata'
 gem 'oauth'
 gem "oauth-plugin", ">=0.4.0.pre1"
-gem "portablecontacts", :git => "git://github.com/abhishiv/portablecontacts.git" 
-gem 'omniauth', :git => "https://github.com/intridea/omniauth.git"
-gem 'oa-openid', :git => "https://github.com/intridea/omniauth.git"
 gem 'mongrel', '1.2.0.pre2'
 gem 'jquery-rails', '>= 0.2.6'
+gem 'contacts'
+gem 'hpricot'
+gem "portablecontacts", :git => "git://github.com/aspgems/portablecontacts.git"
+gem 'omniauth', :git => "https://github.com/intridea/omniauth.git"
+gem 'oa-openid', :git => "https://github.com/intridea/omniauth.git"
+
+
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
