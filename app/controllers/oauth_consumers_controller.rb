@@ -18,7 +18,7 @@ class OauthConsumersController < ApplicationController
   # params[:id] holds the service name so you could use this to redirect to various parts
   # of your application depending on what service you're connecting to.
   def go_back
-    redirect_to hours_path
+    redirect_to root_url
   end
   
   # The plugin requires logged_in? to return true or false if the user is logged in. Uncomment and

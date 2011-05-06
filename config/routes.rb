@@ -1,8 +1,6 @@
 App::Application.routes.draw do
   get "pages/home"
 
-  match '/oauth_consumers/:provider/callback' => 'hours#index'
-
   resources :oauth_consumers do
     get :callback, :on => :member
   end
@@ -19,8 +17,8 @@ App::Application.routes.draw do
   match 'logout' => 'user_sessions#destroy'
   match 'example_request' => 'hours#example_request'
   match 'newevent' => 'calendars#newevent'
-
   
+#  match '/oauth_consumers/:provider/callback' => 'hours#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
