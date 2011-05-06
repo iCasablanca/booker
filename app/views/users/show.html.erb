@@ -17,4 +17,6 @@
 <% end %>
 
 <br /><br />
-<sub><%= link_to "powered by bookerbus. sign up for your account now", new_user_path %></sub>
+<% if !current_user %>
+  <sub><%= link_to "powered by bookerbus. sign up for your account now", new_user_path %></sub>
+<% end %>
