@@ -18,7 +18,7 @@ App::Application.routes.draw do
   match 'example_request' => 'hours#example_request'
   match 'newevent' => 'calendars#newevent'
   
-  match '/auth/:provider/callback' => 'hours#index'
+  match '/auth/:provider/callback' => 'hours#callback'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

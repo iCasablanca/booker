@@ -4,8 +4,11 @@ class HoursController < ApplicationController
   before_filter :load
 
   def load
-    @hours = current_user.hours
     @hour = Hour.new
+  end
+
+  def index
+    @hours = current_user.hours
   end
   
   def create
@@ -43,6 +46,7 @@ class HoursController < ApplicationController
       current_user.oauth_token = request.env['omniauth.auth']['credentials']['token']
       current_user.oauth_secret = request.env['omniauth.auth']['credentials']['secret']
       current_user.save!
+      redirect_to(hours_path)
     end
   end
 end

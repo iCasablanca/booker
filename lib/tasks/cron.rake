@@ -5,7 +5,8 @@ task :cron => :environment do
    Hour.find(:all).each do |hour|
       if hour.synced == false
         oauth_consumer = OAuth::Consumer.new("high-stream-410.heroku.com", "mhBqC4iClJ78ebc3UOH+9GTM")
-        access_token = OAuth::AccessToken.new(oauth_consumer, User.find(1).oauth_token,  User.find(1).oauth_secret)
+        user = hour.user_id
+        access_token = OAuth::AccessToken.new(oauth_consumer, hour.user.oauth_token, hour.user.oauth_secret)
         client = Google::Client.new(access_token, '2.0');
 
         entry = <<EOF
@@ -38,7 +39,7 @@ EOF
    Slot.find(:all).each do |slot|
       if slot.email? && slot.synced == false
         oauth_consumer = OAuth::Consumer.new("high-stream-410.heroku.com", "mhBqC4iClJ78ebc3UOH+9GTM")
-        access_token = OAuth::AccessToken.new(oauth_consumer, User.find(1).oauth_token, User.find(1).oauth_secret)
+        access_token = OAuth::AccessToken.new(oauth_consumer, slot.hour.user.oauth_token, slot.hour.user.oauth_secret)
         client = Google::Client.new(access_token, '2.0');
         hour = slot.hour_id
         location = Hour.find(hour).location

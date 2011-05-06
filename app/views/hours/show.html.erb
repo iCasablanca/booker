@@ -7,10 +7,6 @@
 <% else %>
   <%= render @slots %>
 <% end %>
+<br />
 
-<p><%= link_to "all hours", hours_path %></p>
-
-
-<!-- don't need add slot form now, maybe let admin see it later -->
-<%-# render 'shared/slot_form' %>
-
+<p><%= link_to "see all meeting times for #{@hour.user.login}", user_path(@hour.user)  %></p>
