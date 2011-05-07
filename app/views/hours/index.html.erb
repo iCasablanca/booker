@@ -17,7 +17,7 @@
 <% end %>
 
 <br /><br />
-<h3>Your bookerbus URL: http://bookerbus.com/users/<%=current_user.id%> &nbsp;<em>(send this to people who want to meet with you)</em></h3>
+<h3>Your bookerbus URL:&nbsp;<div id="select">http://bookerbus.com/users/<%=current_user.id%></div> &nbsp;<em>(send this to people who want to meet with you)</em></h3>
 <br />
 
 <% if !current_user.oauth_token? %>
